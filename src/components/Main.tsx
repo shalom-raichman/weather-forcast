@@ -16,8 +16,9 @@ export default function Main() {
   const [unit, setUnit] = useState(Units.C)
 
   useEffect(() => {
-    const fetchData = async () => {
+    (async () => {
       try {
+        if (cityName.length < 3) return
         const res = await fetch(`${BASE_URL}${cityName}&appid=${API_KEY}&units=${unit}`)
         const data = await res.json() as WeatherResModel
         if (!res.ok) throw new Error(res.statusText)
@@ -30,12 +31,11 @@ export default function Main() {
       } catch (err) {
         console.log((err as Error).message)
       }
-    }
-    fetchData()
+    })()
   }, [cityName, unit])
 
   useEffect(() => {
-    const fetchData = async () => {
+    (async () => {
       navigator.geolocation.getCurrentPosition(async (position) => {
         try {
           const res = await fetch(`http://api.openweathermap.org/geo/1.0/reverse?lat=${position.coords.latitude}&lon=${position.coords.longitude}&limit=5&appid=${API_KEY}`)
@@ -47,8 +47,7 @@ export default function Main() {
         }
 
       })
-    }
-    fetchData()
+    })()
   }, [])
 
   return (

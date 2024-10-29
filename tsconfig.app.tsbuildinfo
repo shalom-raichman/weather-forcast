@@ -1,0 +1,1 @@
+{"root":["./src/main.tsx","./src/vite-env.d.ts","./src/components/description.tsx","./src/components/logo.tsx","./src/components/main.tsx","./src/components/search.tsx","./src/components/temp.tsx","./src/components/unit.tsx","./src/components/weather.tsx","./src/enums/units.ts","./src/models/weathermodel.ts","./src/models/weatherresmodel.ts"],"version":"5.6.3"}
